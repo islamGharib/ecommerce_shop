@@ -11,8 +11,60 @@ class OrdersMetrics extends StatelessWidget {
     return BlocConsumer<OrderCubit, OrderStates>(
       listener: (context, state){},
       builder: (context, state){
+        OrderCubit cubit = OrderCubit.get(context);
         return Scaffold(
-          body: Container(),
+          appBar: AppBar(
+            title: Text('Orders Numeric Metrics'),
+          ),
+          body: Center(
+            child: Container(
+              color: Colors.white,
+              padding: EdgeInsets.all(20.0),
+              child: Table(
+                border: TableBorder.all(color: Colors.black),
+                children: [
+                  TableRow(children: [
+                    Text(
+                        'total count',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Text(
+                        'average price',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Text(
+                        'number of returns',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                  ),
+                  TableRow(children: [
+                    Text(
+                        '${cubit.orders.length}',
+                      textAlign: TextAlign.center,
+                    ),
+                    Text(
+                        '\$${cubit.averagePrice.toStringAsFixed(2)}',
+                      textAlign: TextAlign.center,
+                    ),
+                    Text(
+                        '${cubit.numberOfReturns}',
+                      textAlign: TextAlign.center,
+                    ),
+                  ])
+                ],
+              ),
+            ),
+          ),
         );
       },
     );
