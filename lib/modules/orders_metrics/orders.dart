@@ -1,3 +1,4 @@
+import 'package:ecommerce_shop/modules/orders_graph/bar_chart_graph.dart';
 import 'package:ecommerce_shop/shared/cubit/cubit.dart';
 import 'package:ecommerce_shop/shared/cubit/states.dart';
 import 'package:flutter/cupertino.dart';
@@ -16,54 +17,69 @@ class OrdersMetrics extends StatelessWidget {
           appBar: AppBar(
             title: Text('Orders Numeric Metrics'),
           ),
-          body: Center(
-            child: Container(
-              color: Colors.white,
-              padding: EdgeInsets.all(20.0),
-              child: Table(
-                border: TableBorder.all(color: Colors.black),
-                children: [
-                  TableRow(children: [
-                    Text(
+          body: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                color: Colors.white,
+                padding: EdgeInsets.all(20.0),
+                child: Table(
+                  border: TableBorder.all(color: Colors.black),
+                  children: [
+                    TableRow(children: [
+                      Text(
                         'total count',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                    ),
-                    Text(
+                      Text(
                         'average price',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                    ),
-                    Text(
+                      Text(
                         'number of returns',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
+                    ],
                     ),
-                  ],
-                  ),
-                  TableRow(children: [
-                    Text(
+                    TableRow(children: [
+                      Text(
                         '${cubit.orders.length}',
-                      textAlign: TextAlign.center,
-                    ),
-                    Text(
+                        textAlign: TextAlign.center,
+                      ),
+                      Text(
                         '\$${cubit.averagePrice.toStringAsFixed(2)}',
-                      textAlign: TextAlign.center,
-                    ),
-                    Text(
+                        textAlign: TextAlign.center,
+                      ),
+                      Text(
                         '${cubit.numberOfReturns}',
-                      textAlign: TextAlign.center,
-                    ),
-                  ])
-                ],
+                        textAlign: TextAlign.center,
+                      ),
+                    ])
+                  ],
+                ),
               ),
-            ),
+              SizedBox(height: 30,),
+              TextButton(
+                  onPressed: (){
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => OrdersBarChartGraph(),
+                      ),
+                    );
+                  },
+                  child: Text('View Bar Chart'),
+              ),
+            ],
           ),
         );
       },
