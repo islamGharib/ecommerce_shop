@@ -1,5 +1,5 @@
 import 'package:ecommerce_shop/model/orders_bar_chart_model.dart';
-import 'package:ecommerce_shop/modules/orders_graph/Orders_Chart.dart';
+import 'package:ecommerce_shop/modules/orders_graph/bar_chart.dart';
 import 'package:ecommerce_shop/shared/cubit/cubit.dart';
 import 'package:ecommerce_shop/shared/cubit/states.dart';
 import 'package:flutter/cupertino.dart';
@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
 
-class OrdersBarChartGraph extends StatelessWidget {
+class OrdersGraph extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +32,7 @@ class OrdersBarChartGraph extends StatelessWidget {
             title: Text('Orders Bar Chart'),
           ),
           body: Center(
-            child: OrdersChart(data),
+            child: BarChart(data),
           ),
 
         );
