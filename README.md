@@ -26,4 +26,4 @@ run `dart pub get` to downlaod the package.
 
 ### Screenshots
 
-https://drive.google.com/file/d/18fBQJpmDCPRMvTbnXn-YN2SKhRcB63F4/view?usp=sharing
+![alt text](https://drive.google.com/file/d/18fBQJpmDCPRMvTbnXn-YN2SKhRcB63F4/view?usp=sharing?raw=true)
